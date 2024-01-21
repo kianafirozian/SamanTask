@@ -35,15 +35,16 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} color={"blue"}>
       <FormLabel>Title</FormLabel>
       <Input type="text" {...register("title")} />
-      <p></p>
-
-      <FormLabel>Body</FormLabel>
+      <p className="text-red-600 text-sm pt-1">title is required</p>
+      <FormLabel marginTop={2}>Body</FormLabel>
       <Input type="text" {...register("body")} />
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit" marginTop={5} color={"blue"}>
+        Submit
+      </Button>
     </form>
   );
 };
