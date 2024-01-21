@@ -12,10 +12,12 @@ const ShowPosts = () => {
     console.log("res", res);
   };
   useEffect(() => {
-    setLoading(true);
     handleGetApi();
-    setLoading(false);
   }, []);
+
+  const DeletePosts = () => {
+    console.log("e");
+  };
 
   return (
     <div className="items-center">

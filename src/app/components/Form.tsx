@@ -4,6 +4,8 @@ import {
   FormLabel,
   FormErrorMessage,
   FormHelperText,
+  Button,
+  Input,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -11,16 +13,20 @@ import * as yup from "yup";
 
 interface FormInput {
   title: string;
-  body: string;
+  body?: string;
 }
 
 const Form = () => {
-  const schema = yup.object().shape({
+  const schema = yup.object({
     title: yup.string().required("Title is required"),
     body: yup.string(),
   });
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInput>({
     resolver: yupResolver(schema),
   });
 
@@ -29,15 +35,16 @@ const Form = () => {
   };
 
   return (
-    <FormControl onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FormLabel>Title</FormLabel>
-      <input type="text" {...register("title")} />
+      <Input type="text" {...register("title")} />
+      <p></p>
 
       <FormLabel>Body</FormLabel>
-      <input type="text" {...register("body")} />
+      <Input type="text" {...register("body")} />
 
-      <input type="submit" />
-    </FormControl>
+      <Button type="submit">Submit</Button>
+    </form>
   );
 };
 
