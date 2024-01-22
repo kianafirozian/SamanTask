@@ -59,7 +59,7 @@ const Form = ({ onAddPost }: Props) => {
           <p className="text-red-600 text-sm">title is required...</p>
         )}
         <FormLabel className="block text-gray-700 text-sm font-bold mb-2 mt-5">
-          Body
+          Description
         </FormLabel>
         <Input
           type="text"

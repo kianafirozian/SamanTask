@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="col-2 p-5">
       <div className="">
-        <Form onAddPost={(data) => setPosts([data, ...posts])} />
+        <Form onAddPost={(post) => setPosts([post, ...posts])} />
         {loading ? <Spinner className="p-2 m-10" color="violet" /> : null}
       </div>
 
