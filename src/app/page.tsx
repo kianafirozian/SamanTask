@@ -26,10 +26,10 @@ export default function Home() {
     <div className="col-2 p-5">
       <div className="">
         <Form onAddPost={(post) => setPosts([post, ...posts])} />
+
+        <Posts posts={posts} onDelete={deletePost} />
         {loading ? <Spinner className="p-2 m-10" color="violet" /> : null}
       </div>
-
-      <Posts posts={posts} onDelete={deletePost} />
     </div>
   );
 }
