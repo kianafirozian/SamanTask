@@ -26,7 +26,7 @@ const Posts = ({ posts, onDelete }: Props) => {
     <Card>
       <CardHeader>
         <Heading size="3xl" color="lavender">
-          Posts
+          Main Posts
         </Heading>
       </CardHeader>
       <CardBody>
@@ -41,14 +41,14 @@ const Posts = ({ posts, onDelete }: Props) => {
                 justifyContent="space-between"
               >
                 <Box display="block">
-                  <Text fontSize={25} fontWeight="bold">
+                  <Text fontSize={20} fontWeight="bold">
                     {post.title}
                   </Text>
                   <Text>{post.body}</Text>
                 </Box>
                 <Button
-                  backgroundColor="EDF2F7"
-                  color="pink"
+                  backgroundColor="lavender"
+                  color="darkviolet"
                   onClick={() => onDelete(post.id)}
                 >
                   Delete

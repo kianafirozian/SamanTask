@@ -1,6 +1,5 @@
 "use client";
 import {
-  FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
@@ -40,33 +39,45 @@ const Form = ({ onAddPost }: Props) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit((data) => {
-        onSubmit(data);
-        reset();
-      })}
-      color="lightblue"
-    >
-      <FormLabel color="darkblue">Title</FormLabel>
-      <Input type="text" {...register("title")} />
-      {errors.title?.type === "required" && (
-        <p className="text-red-600 text-sm">title is required...</p>
-      )}
-      <FormLabel marginTop={2} color="darkblue">
-        Body
-      </FormLabel>
-      <Input type="text" {...register("body")} />
-
-      <Button
-        disabled={!isValid}
-        type="submit"
-        marginTop={5}
-        color="blue"
-        marginBottom={5}
+    <div className="w-full max-w-lg bg-gray-200">
+      <form
+        onSubmit={handleSubmit((data) => {
+          onSubmit(data);
+          reset();
+        })}
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
-        Submit
-      </Button>
-    </form>
+        <FormLabel className="block text-gray-700 text-sm font-bold mb-2">
+          Title
+        </FormLabel>
+        <Input
+          type="text"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          {...register("title")}
+        />
+        {errors.title?.type === "required" && (
+          <p className="text-red-600 text-sm">title is required...</p>
+        )}
+        <FormLabel className="block text-gray-700 text-sm font-bold mb-2 mt-5">
+          Body
+        </FormLabel>
+        <Input
+          type="text"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          {...register("body")}
+        />
+
+        <Button
+          disabled={!isValid}
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          marginTop={5}
+          color="blue"
+        >
+          Submit
+        </Button>
+      </form>
+    </div>
   );
 };
 
