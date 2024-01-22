@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="col-2 p-5">
       <Form onAddPost={(data) => setPosts([data, ...posts])} />
-      <Posts key={posts.userId} posts={posts} onDelete={deletePost} />
+      <Posts posts={posts} onDelete={deletePost} />
     </div>
   );
 }

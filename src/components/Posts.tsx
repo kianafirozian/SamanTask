@@ -14,6 +14,7 @@ interface Post {
   title: string;
   body: string;
   id: number;
+  userId?: number;
 }
 
 interface Props {
@@ -34,7 +35,7 @@ const Posts = ({ posts, onDelete }: Props) => {
           <Stack divider={<StackDivider />} spacing="4">
             {posts.map((post) => (
               <Box
-                key={post.body}
+                key={post.userId}
                 pt="2"
                 fontSize="sm"
                 display="flex"
