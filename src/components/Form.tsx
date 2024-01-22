@@ -16,7 +16,7 @@ interface Props {
 interface FormInput {
   title: string;
   body?: string;
-  userId?: number;
+  id?: number;
 }
 
 const Form = ({ onAddPost }: Props) => {
@@ -35,8 +35,7 @@ const Form = ({ onAddPost }: Props) => {
   });
 
   const onSubmit = (data: FormInput) => {
-    onAddPost({ ...data, userId: Math.floor(Math.random() * 1000) });
-    console.log(data);
+    onAddPost({ ...data, id: Math.floor(Math.random() * 1000) });
   };
 
   return (

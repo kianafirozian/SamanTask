@@ -35,7 +35,7 @@ const Posts = ({ posts, onDelete }: Props) => {
           <Stack divider={<StackDivider />} spacing="4">
             {posts.map((post) => (
               <Box
-                key={post.userId}
+                key={post.id}
                 pt="2"
                 fontSize="sm"
                 display="flex"
