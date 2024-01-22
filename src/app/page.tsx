@@ -1,11 +1,18 @@
 "use client";
 import { getPostApi } from "@/app/api/route";
 import Form from "@/components/Form";
+import Posts from "@/components/Posts";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [posts, setPosts] = useState<any>([]);
   // const [loading, setLoading] = useState<any>(false);
+
+  function deletePost(id: number) {
+    const newPost = posts.filter((post: any) => post.id !== id);
+    console.log("id", id);
+    setPosts(newPost);
+  }
 
   const handleGetApi = async () => {
     const res = await getPostApi();
@@ -16,10 +23,10 @@ export default function Home() {
     handleGetApi();
   }, []);
   return (
-    <div className="col p-5">
-      <Form />
+    <div className="col-2 p-5">
+      <Form onAddPost={(data) => setPosts([data, ...posts])} />
       {posts.map((post: any) => (
-        <h2 key={post.id}>{post.title}</h2>
+        <Posts key={post.title} posts={posts} onDelete={deletePost} />
       ))}
     </div>
   );
