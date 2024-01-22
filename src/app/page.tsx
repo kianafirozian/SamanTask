@@ -17,7 +17,6 @@ export default function Home() {
   const handleGetApi = async () => {
     const res = await getPostApi();
     setPosts(res);
-    console.log("res", res);
   };
   useEffect(() => {
     handleGetApi();
@@ -25,9 +24,7 @@ export default function Home() {
   return (
     <div className="col-2 p-5">
       <Form onAddPost={(data) => setPosts([data, ...posts])} />
-      {posts.map((post: any) => (
-        <Posts key={post.title} posts={posts} onDelete={deletePost} />
-      ))}
+      <Posts key={posts.userId} posts={posts} onDelete={deletePost} />
     </div>
   );
 }
